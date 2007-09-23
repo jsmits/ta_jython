@@ -56,9 +56,11 @@ def test_strategy(definition, strategy):
         order_entry = client.account['_orders'][order_id]
         signal = order_entry['signal']
         if previous_signal:
-            if previous_signal.startswith('entry') and not signal.startswith('exit'):
+            if previous_signal.startswith('entry') and \
+                                    not signal.startswith('exit'):
                 invalid_sequence += 1
-            if previous_signal.startswith('exit') and not signal.startswith('entry'):
+            if previous_signal.startswith('exit') and \
+                                    not signal.startswith('entry'):
                 invalid_sequence += 1
         previous_signal = signal
     if invalid_sequence: 
@@ -172,7 +174,8 @@ class TestRunner(Runnable):
             report = test_strategy(self.definition, strategy)
             strategy.report = report
             self.count += 1
-            print "thread: %s, tested: %s of %s" % (self.thread_id, self.count, len(self.strategies)) 
+            print "thread: %s, tested: %s of %s" % (self.thread_id, self.count, 
+                                                    len(self.strategies)) 
         
 if __name__ == '__main__':
     
@@ -189,7 +192,8 @@ if __name__ == '__main__':
     signal_combos = random_signal_combos_generator(available_signals, 10)
     start_time = datetime.time(9, 30) # times for the test data
     end_time = datetime.time(15,45) # should exit after this
-    strategies = [Strategy(signals=combo, start=start_time, end=end_time) for combo in signal_combos] 
+    strategies = [Strategy(signals=combo, start=start_time, end=end_time) 
+                  for combo in signal_combos] 
     split = len(strategies) / 2 # divide over tasks
     start = datetime.datetime.now()
     t1 = Thread(TestRunner(1, definition, strategies[:split]))
@@ -199,9 +203,12 @@ if __name__ == '__main__':
     t1.join() # join here after t1 has finished
     t2.join() # join here after t2 has finished
     end = datetime.datetime.now()
-    print "finished crunching %s strategies, time: %s, %s seconds per strategy" % (len(strategies), str(end - start), round((end - start).seconds * 1.0 / len(strategies), 2))
+    print "finished crunching %s strategies, time: %s, %s seconds per "\
+        "strategy" % (len(strategies), str(end - start), 
+                      round((end - start).seconds * 1.0 / len(strategies), 2))
     
     for sss in strategies:
         rp = sss.report
-        print rp['result_for_capacity_percentage'], rp['long_trades'], rp['short_trades'], rp['sum_all_results_with_commission']
+        print rp['result_for_capacity_percentage'], rp['long_trades'], \
+            rp['short_trades'], rp['sum_all_results_with_commission']
         # print sss.signals

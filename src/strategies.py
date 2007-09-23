@@ -1,9 +1,7 @@
 from random import randrange, shuffle
-from signals import (entry_long_signal_A, entry_long_random, 
-    exit_long_stop_cross_value_A, exit_long_take_cross_value_B, exit_long_random, 
-    entry_short_signal_B, entry_short_signal_C, entry_short_random,
-    exit_short_take_cross_value_A, exit_short_stop_cross_value_B, exit_short_random
-    )
+from signals import entry_long_signal_A, entry_long_random, exit_long_stop_cross_value_A, exit_long_take_cross_value_B, exit_long_random 
+from signals import entry_short_signal_B, entry_short_signal_C, entry_short_random
+from signals import exit_short_take_cross_value_A, exit_short_stop_cross_value_B, exit_short_random
 
 class Strategy(object):
     """Strategy holder and evaluator"""
