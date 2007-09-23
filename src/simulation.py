@@ -46,8 +46,6 @@ def test_strategy(definition, strategy):
     while tick_queue.size():
         time.sleep(1)
     
-    iapp = datetime.datetime.now()
-    
     # now show some statistics
     report = {}
     order_map = client.order_map[1] # ticker_id = 1

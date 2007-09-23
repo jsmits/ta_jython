@@ -55,7 +55,7 @@ class Candles(list):
         
 class TickWrapper(object):
     """wrap a tick so that the date can be accessed by tick.date and
-       the value can be accessed by date.value
+    the value can be accessed by date.value
     """
     def __init__(self, ticks, index):
         ticks = ticks[:] # make a copy otherwise it becomes recursive
@@ -128,24 +128,12 @@ if __name__=='__main__':
                 value -= random()
     
     t = Ticks()
-    signal_count = 0
-    from signals import entry_signal_A, entry_signal_B, entry_signal_C
-    import time
-    
     tl = [tick for tick in tick_generator()]
-    sl = [entry_signal_A, entry_signal_B, entry_signal_C]
-    
     start = datetime.now()
     for tick in tl[:2000]:
         t.append(tick)
-        for si in sl:
-            if si(t):
-                signal_count +=1
-        #time.sleep(0.001)
     end = datetime.now()
-    
     print end - start
-    print signal_count
         
     def update_ticks():
         for tick in tick_generator(start=datetime(2006,12,9,9,30), 
