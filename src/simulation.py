@@ -211,4 +211,8 @@ if __name__ == '__main__':
         rp = sss.report
         print rp['result_for_capacity_percentage'], rp['long_trades'], \
             rp['short_trades'], rp['sum_all_results_with_commission']
-        # print sss.signals
+        print sss.signals
+        
+        
+    
+    

@@ -17,7 +17,7 @@ def parse_line(line):
     return candle
 
 def tick_list(symbol, start, end):
-    # TO-DO find the right file for symbol, start and end
+    #TODO: find the right file for symbol, start and end
     f = open('ES_03U.TXT', 'r')
     title_line = f.readline() # skip first line
     ticks = []
