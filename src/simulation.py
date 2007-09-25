@@ -189,7 +189,7 @@ if __name__ == '__main__':
                   'expiry'  : "200712",
                   'exchange': "GLOBEX",
                   'currency': "USD"}
-    signal_combos = random_signal_combos_generator(available_signals, 10)
+    signal_combos = random_signal_combos_generator(available_signals, 50)
     start_time = datetime.time(9, 30) # times for the test data
     end_time = datetime.time(15,45) # should exit after this
     strategies = [Strategy(signals=combo, start=start_time, end=end_time) 

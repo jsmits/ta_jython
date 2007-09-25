@@ -120,6 +120,14 @@ def exit_long_take_cross_value_B(ticker, entry_time, entry_value):
     ticks = ticker.ticks
     return tick_co(ticks, entry_time, entry_value, 1.00)
 
+def exit_long_stop_cross_value_AA(ticker, entry_time, entry_value):
+    ticks = ticker.ticks
+    return tick_co(ticks, entry_time, entry_value, -1.00)
+
+def exit_long_take_cross_value_BA(ticker, entry_time, entry_value):
+    ticks = ticker.ticks
+    return tick_co(ticks, entry_time, entry_value, 1.25)
+
 def exit_long_random(ticker, entry_time, entry_value):
     if r.random() < 0.02:
         return True
@@ -131,6 +139,14 @@ def exit_short_take_cross_value_A(ticker, entry_time, entry_value):
 def exit_short_stop_cross_value_B(ticker, entry_time, entry_value):
     ticks = ticker.ticks
     return tick_co(ticks, entry_time, entry_value, 0.75)
+
+def exit_short_take_cross_value_AA(ticker, entry_time, entry_value):
+    ticks = ticker.ticks
+    return tick_co(ticks, entry_time, entry_value, -1.25)
+
+def exit_short_stop_cross_value_BA(ticker, entry_time, entry_value):
+    ticks = ticker.ticks
+    return tick_co(ticks, entry_time, entry_value, 1.00)
 
 def exit_short_random(ticker, entry_time, entry_value):
     if r.random() < 0.02:
@@ -245,7 +261,7 @@ available_signals = [
     #entry_short_tops_1_1, entry_short_tops_1_2, entry_short_tops_1_3, entry_short_tops_1_4, entry_short_tops_1_5, 
     entry_long_tops_2_1, entry_long_tops_2_2, entry_long_tops_2_3, entry_long_tops_2_4, entry_long_tops_2_5,
     entry_short_tops_2_1, entry_short_tops_2_2, entry_short_tops_2_3, entry_short_tops_2_4, entry_short_tops_2_5,     
-    exit_long_stop_cross_value_A, exit_long_take_cross_value_B,
-    exit_short_take_cross_value_A, exit_short_stop_cross_value_B
+    exit_long_stop_cross_value_A, exit_long_take_cross_value_B, exit_long_stop_cross_value_AA, exit_long_take_cross_value_BA,
+    exit_short_take_cross_value_A, exit_short_stop_cross_value_B, exit_short_take_cross_value_AA, exit_short_stop_cross_value_BA
 ]
 
