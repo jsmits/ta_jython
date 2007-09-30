@@ -132,6 +132,7 @@ class TradingEngine(Runnable):
         ticker = self.tickers.get(id)
         ticker.ticks.append(tick[1:3]) # only time and value
         
+        # now analyze
         strategy = ticker.strategy
         if not strategy: return
         position = self.order_engine.has_position(ticker)
